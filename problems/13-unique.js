@@ -16,6 +16,13 @@ console.log(unique(['a', 'b', 'c', 'b'])); // ['a', 'b', 'c']
 
 let unique = function(array) {
     // Your code here
+    const results = [];
+    array.forEach((el) => {
+        if (!results.includes(el)) {
+            results.push(el);
+        }
+    });
+    return results;
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -24,4 +31,4 @@ try {
     module.exports = unique;
 } catch (e) {
     module.exports = null;
-}
+}

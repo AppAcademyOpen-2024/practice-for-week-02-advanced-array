@@ -13,13 +13,30 @@ console.log(hipsterfy('get ready for our bootcamp')); // 'gt redy fr or bootcmp'
 console.log(hipsterfy('panthers are great animals')); // 'panthrs ar gret animls'
 
 */
+function isVowel(letter) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    return vowels.includes(letter.toLowerCase());
+}
 
-let removeLastVowel = function(word) {
-    // Your code here
-};
+function getLastVowelIndex(word) {
+    for (let i = word.length - 1; i > 0; i--) {
+        if (isVowel(word[i])) {
+            return i;
+        }
+    }
+    return null;
+}
+
+function removeLastVowel(word) {
+    const index = getLastVowelIndex(word);
+    return word.slice(0, index) + word.slice(index + 1, word.length);
+}
 
 let hipsterfy = function(sentence) {
     // Your code here
+    const words = sentence.split(' ');
+    return words.map((word) => removeLastVowel(word)).join(' ');
 };
 
 // alternative solution using Array.map
@@ -33,4 +50,4 @@ try {
     module.exports = hipsterfy;
 } catch (e) {
     module.exports = null;
-}
+}

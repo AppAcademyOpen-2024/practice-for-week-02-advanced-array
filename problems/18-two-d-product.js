@@ -26,7 +26,13 @@ console.log(twoDimensionalProduct(arr2)); // 88
 */
 
 let twoDimensionalProduct = function(arr) {
-    // Your code here
+  // Your code here
+  let total = 1;
+
+  arr.forEach((subArr) => {
+    subArr.forEach((el) => total *= el);
+  });
+  return total;
 };
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
